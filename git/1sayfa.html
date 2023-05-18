@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giriş Sayfası</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #scrolling-text {
+            color: red;
+            font-size: 48px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            animation: scrolling 17s linear infinite;
+        }
+
+        @keyframes scrolling {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #start-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #skip-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="scrolling-text">
+        RÜŞVETÇİ   POLİTİKACILARI   DÜZENBAZLARI   SEÇEN   HALK   KURBAN   DEĞİL   SUÇ   ORTAĞIDIR
+    </div>
+
+    <audio id="background-audio">
+        <source src="ses.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="start-button" onclick="startIntro()">"ADALET İÇİN TIKLA"</button>
+
+    <button id="skip-button" onclick="skipIntro()">Geç</button>
+
+    <script>
+        var audio = document.getElementById('background-audio');
+        var startButton = document.getElementById('start-button');
+        var skipButton = document.getElementById('skip-button');
+
+        audio.volume = 0.5;
+
+        function startIntro() {
+            audio.play();
+            startButton.style.display = 'none';
+        }
+
+        function skipIntro() {
+            window.location.href = "2.html";
+        }
+
+        audio.onended = function() {
+            audio.play();
+        };
+    </script>
+</body>
+</html>

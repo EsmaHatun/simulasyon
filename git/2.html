@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seçim Sayfası</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: rgb(255, 0, 0);
+            margin-bottom: 30px;
+        }
+
+        button {
+            font-size: 24px;
+            padding: 10px 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Kime oy vereceksiniz?</h1>
+    <button onclick="vote('chp')">CHP</button>
+    <button onclick="vote('akp')">AKP</button>
+   
+
+    <audio id="sound" src="ses-dosyasi.mp3"></audio>
+
+    <script>
+        function vote(party) {
+            if (party === 'chp') {
+                window.location.href = "tebrikler.html";
+            } else {
+                alert("KİME OY VERDİĞİNE KULAK VER!");
+                document.getElementById('sound').play();
+            }
+        }
+    </script>
+</body>
+</html>
+
+
